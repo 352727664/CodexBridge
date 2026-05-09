@@ -1,58 +1,60 @@
-# CodexBridge — 让 Codex 用上 DeepSeek、MiMo、通义千问等国产大模型
+# CodexBridge — Use Any AI Model with Codex Desktop
 
-> **Codex 自定义模型** | **Codex 第三方 API** | **Codex 国产模型接入** | **OpenAI Codex 代理**
+> **Codex Custom Model** | **Codex Third-Party API** | **Codex Alternative Models** | **OpenAI Codex Proxy**
 
-OpenAI Codex 桌面版只支持 Responses API，无法直接使用国产大模型。CodexBridge 是一个本地代理，将 Codex 的 Responses API 翻译为 Chat Completions 格式，让你在 Codex 中使用 **DeepSeek**、**MiMo**、**通义千问**、**Kimi**、**智谱**、**百川**、**豆包**、**Claude** 等任意模型。
+[中文文档](README_zh.md)
+
+OpenAI Codex Desktop only supports Responses API and cannot directly use third-party models. CodexBridge is a local proxy that translates Codex's Responses API to Chat Completions format, letting you use **DeepSeek**, **MiMo**, **Qwen**, **Kimi**, **GLM**, **Baichuan**, **Doubao**, **Claude** and more in Codex.
 
 ```
-Codex (Responses API) → CodexBridge → AI 提供商 (Chat Completions API)
+Codex (Responses API) → CodexBridge → AI Provider (Chat Completions API)
 ```
 
-## 支持的模型
+## Supported Models
 
-| 提供商 | 模型 | 推理 |
-|--------|------|------|
+| Provider | Models | Reasoning |
+|----------|--------|-----------|
 | **DeepSeek** | deepseek-chat, deepseek-reasoner, DeepSeek-V3, DeepSeek-R1 | ✅ |
-| **Qwen (通义千问)** | qwen-max, qwen-plus, qwen3-235b-a22b, qwen3-coder-plus | ✅ |
-| **Kimi (月之暗面)** | moonshot-v1-8k/32k/128k, kimi-k2 | - |
-| **GLM (智谱)** | glm-4-plus, glm-4-flash, glm-z2-airx | - |
-| **MiMo (小米)** | mimo-v2.5-pro, mimo-v2-flash | ✅ |
+| **Qwen** | qwen-max, qwen-plus, qwen3-235b-a22b, qwen3-coder-plus | ✅ |
+| **Kimi** | moonshot-v1-8k/32k/128k, kimi-k2 | - |
+| **GLM** | glm-4-plus, glm-4-flash, glm-z2-airx | - |
+| **MiMo** | mimo-v2.5-pro, mimo-v2-flash | ✅ |
 | **MiniMax** | MiniMax-Text-01, abab6.5-chat | - |
-| **Baichuan (百川)** | Baichuan4, Baichuan3-Turbo | - |
-| **Yi (零一万物)** | yi-lightning, yi-large, yi-spark | - |
-| **Doubao (豆包)** | doubao-1.5-pro-256k, doubao-1.5-lite-32k | ✅ |
-| **StepFun (阶跃星辰)** | step-2-16k/32k, step-1-flash | - |
-| **SiliconFlow (硅基流动)** | DeepSeek-V3, Qwen3-235B, DeepSeek-R1 | ✅ |
+| **Baichuan** | Baichuan4, Baichuan3-Turbo | - |
+| **Yi** | yi-lightning, yi-large, yi-spark | - |
+| **Doubao** | doubao-1.5-pro-256k, doubao-1.5-lite-32k | ✅ |
+| **StepFun** | step-2-16k/32k, step-1-flash | - |
+| **SiliconFlow** | DeepSeek-V3, Qwen3-235B, DeepSeek-R1 | ✅ |
 | **Anthropic (Claude)** | claude-sonnet-4, claude-opus-4 | ✅ |
-| **OpenAI Compatible** | 自定义任何 OpenAI 兼容 API | ✅ |
+| **OpenAI Compatible** | Any OpenAI-compatible API | ✅ |
 
-## 三步开始
+## Get Started in 3 Steps
 
 ```bash
-# 1. 安装并启动
+# 1. Install and start
 git clone https://github.com/352727664/CodexBridge.git
 cd CodexBridge && pip install -r requirements.txt
 python proxy.py
 
-# 2. 打开 http://localhost:8787，添加 API Key 并保存
+# 2. Open http://localhost:8787, add your API Key and save
 
-# 3. 打开 Codex 桌面版，直接使用
+# 3. Open Codex Desktop and use directly
 ```
 
-## WebUI 管理面板
+## WebUI Dashboard
 
-启动服务后，浏览器访问 `http://localhost:8787` 即可使用内置的 WebUI 管理面板：
+After starting the service, visit `http://localhost:8787` for the built-in WebUI dashboard:
 
-- **添加/编辑提供商** — 选择预设模板或自定义配置，填写 API Key 即可
-- **一键启用** — 在列表中切换当前活跃的提供商
-- **测试连接** — 发送测试请求验证 API 连通性和延迟
-- **导入配置** — 自动读取 config.json 中已有配置
-- **复制提供商** — 快速克隆已有配置进行修改
-- **设置管理** — 修改端口、默认提供商等全局设置
+- **Add/Edit Providers** — Choose preset templates or custom config, just fill in your API Key
+- **One-Click Switch** — Switch between providers and models instantly
+- **Test Connection** — Send test requests to verify API connectivity and latency
+- **Import Config** — Auto-read existing config.json configurations
+- **Duplicate Provider** — Quickly clone existing configs for modification
+- **Settings** — Modify port, default provider, and other global settings
 
-## 配置说明
+## Configuration
 
-也可以直接编辑 `config.json`，只填你需要的提供商：
+You can also directly edit `config.json` with only the providers you need:
 
 ```json
 {
@@ -67,7 +69,7 @@ python proxy.py
       "has_reasoning": true
     },
     "qwen": {
-      "name": "Qwen (通义千问)",
+      "name": "Qwen",
       "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "api_key": "sk-xxx",
       "models": ["qwen-max", "qwen-plus"],
@@ -77,84 +79,85 @@ python proxy.py
 }
 ```
 
-**配置字段说明：**
+**Configuration Fields:**
 
-| 字段 | 说明 |
-|------|------|
-| `active_provider` | 默认使用的提供商 ID（对应 providers 的 key） |
-| `port` | 服务端口，默认 8787 |
-| `base_url` | 提供商 API 地址（不含 `/chat/completions`，会自动拼接） |
-| `api_key` | API 密钥 |
-| `models` | 该提供商支持的模型列表 |
-| `has_reasoning` | 模型是否支持推理内容（reasoning_content 字段） |
+| Field | Description |
+|-------|-------------|
+| `active_provider` | Default provider ID (matches the providers key) |
+| `port` | Service port, default 8787 |
+| `base_url` | Provider API address (without `/chat/completions`, auto-appended) |
+| `api_key` | API key |
+| `models` | List of models supported by this provider |
+| `has_reasoning` | Whether the model supports reasoning content (reasoning_content field) |
 
-## 在 Codex 桌面版中使用
+## Using with Codex Desktop
 
-1. 启动 CodexBridge: `python proxy.py`
-2. 打开 http://localhost:8787，添加 API Key 并保存
-3. 打开 Codex 桌面版，直接使用
+1. Start CodexBridge: `python proxy.py`
+2. Open http://localhost:8787, add your API Key and save
+3. Open Codex Desktop and use directly
 
-CodexBridge 会在保存时自动将配置写入 `~/.codex/config.toml` 和 `~/.codex/auth.json`，无需手动操作。
+CodexBridge automatically writes the config to `~/.codex/config.toml` and `~/.codex/auth.json` when you save — no manual steps needed.
 
-## API 端点
+## API Endpoints
 
-| 端点 | 方法 | 说明 |
-|------|------|------|
-| `/v1/responses` | POST | 发送对话请求（核心端点） |
-| `/v1/models` | GET | 列出所有可用模型 |
-| `/v1/providers` | GET | 列出所有已配置的提供商 |
-| `/v1/providers/active` | POST | 切换当前活跃提供商 |
-| `/health` | GET | 健康检查 |
-| `/docs` | GET | Swagger 交互文档 |
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/v1/responses` | POST | Send conversation request (core endpoint) |
+| `/v1/models` | GET | List all available models |
+| `/v1/providers` | GET | List all configured providers |
+| `/v1/providers/active` | POST | Switch active provider |
+| `/health` | GET | Health check |
+| `/docs` | GET | Swagger API docs |
 
-## 添加新提供商
+## Adding New Providers
 
-不需要写代码！只要提供商支持 OpenAI 兼容格式，在 `config.json` 的 `providers` 中加一个新条目即可。也可以通过 WebUI 管理面板直接添加。
+No code changes needed! Just add a new entry to `config.json` providers as long as the provider supports OpenAI-compatible format. You can also add directly through the WebUI dashboard.
 
-## 命令行参数
+## Command Line Arguments
 
 ```bash
-python proxy.py --port 9000    # 自定义端口
+python proxy.py --port 9000    # Custom port
 ```
 
-## 开发
+## Development
 
 ```bash
-# 安装 Python 依赖
+# Install Python dependencies
 pip install -r requirements.txt
 
-# 启动后端
+# Start backend
 python proxy.py
 
-# 在另一个终端，开发前端
+# In another terminal, develop frontend
 cd webui
 npm install
-npm run dev    # 开发模式，自动代理到后端
-npm run build  # 构建生产版本
+npm run dev    # Dev mode with auto-proxy
+npm run build  # Build production version
 ```
 
-## 项目结构
+## Project Structure
 
 ```
 CodexBridge/
 ├── providers/
-│   ├── __init__.py             # Provider 注册
-│   ├── openai_provider.py      # 通用 OpenAI 兼容 Provider
+│   ├── __init__.py             # Provider registration
+│   ├── openai_provider.py      # Universal OpenAI-compatible Provider
 │   └── anthropic_provider.py   # Anthropic Messages API Provider
-├── provider_manager.py         # 提供商管理器
-├── proxy.py                    # FastAPI 主服务
-├── admin_api.py                # WebUI 管理 API
+├── provider_manager.py         # Provider manager
+├── proxy.py                    # FastAPI main service
+├── admin_api.py                # WebUI management API
 ├── webui/
-│   └── dist/                   # 构建后的前端静态文件
-├── config.example.json         # 配置模板（含所有提供商）
-├── config.json                 # 你的配置（git ignored）
-├── requirements.txt            # Python 依赖
-├── start.sh                    # 启动脚本
-├── README.md
+│   └── dist/                   # Built frontend static files
+├── config.example.json         # Config template (with all providers)
+├── config.json                 # Your config (git ignored)
+├── requirements.txt            # Python dependencies
+├── start.sh                    # Start script
+├── README.md                   # English documentation
+├── README_zh.md                # Chinese documentation
 ├── LICENSE
 └── .gitignore
 ```
 
 ## License
 
-CC BY-NC-SA 4.0 — 禁止商业使用
+CC BY-NC-SA 4.0 — No commercial use
