@@ -1,0 +1,14 @@
+{
+  "active_provider": "deepseek",
+  "port": 8787,
+  "providers": {
+    "deepseek": {
+      "name": "DeepSeek",
+      "api_format": "openai",
+      "base_url": "https://api.deepseek.com",
+      "api_key": "",
+      "models": ["deepseek-chat"],
+      "has_reasoning": true
+    }
+  }
+}

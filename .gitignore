@@ -1,0 +1,17 @@
+config.json
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+.DS_Store
+*.log
+*.tmp
+webui/node_modules/
+webui/dist/
+webui/.vite/
+webui/.gitignore
