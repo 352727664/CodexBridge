@@ -93,16 +93,16 @@ export default function SettingsPage({ onBack }) {
           <div className="bg-surface rounded-xl p-5 space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-sm text-body">版本</span>
-              <span className="text-sm text-ink font-mono">1.0.0</span>
+              <span className="text-sm text-ink font-mono">2.0.0</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-body">开源协议</span>
-              <span className="text-sm text-ink">MIT</span>
+              <span className="text-sm text-ink">CC BY-NC-SA 4.0</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-body">GitHub</span>
               <a
-                href="https://github.com/yourname/CodexBridge"
+                href="https://github.com/352727664/CodexBridge"
                 target="_blank"
                 rel="noopener"
                 className="text-sm text-coral hover:text-coral-active transition-colors"

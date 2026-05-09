@@ -23,7 +23,7 @@ export default function LandingPage({ onGetStarted }) {
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           <Logo />
           <a
-            href="https://github.com/yourname/CodexBridge"
+            href="https://github.com/352727664/CodexBridge"
             target="_blank"
             rel="noopener"
             className="text-sm text-muted hover:text-ink transition-colors"
@@ -71,7 +71,7 @@ export default function LandingPage({ onGetStarted }) {
         <div className="bg-surface-dark rounded-2xl p-8 text-left">
           <h3 className="text-on-dark font-semibold text-sm uppercase tracking-wider mb-4 opacity-60">三步开始</h3>
           <pre className="text-on-dark/90 text-sm font-mono leading-relaxed overflow-x-auto"><code>{`# 1. 安装并启动
-git clone https://github.com/yourname/CodexBridge.git
+git clone https://github.com/352727664/CodexBridge.git
 cd CodexBridge && pip install -r requirements.txt
 python proxy.py
 
@@ -181,9 +181,9 @@ python proxy.py
       {/* Footer */}
       <footer className="border-t border-hairline py-8">
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between text-sm text-muted">
-          <span>CodexBridge &copy; 2026 &middot; MIT License</span>
+          <span>CodexBridge &copy; 2026 &middot; CC BY-NC-SA 4.0</span>
           <div className="flex items-center gap-4">
-            <a href="https://github.com/yourname/CodexBridge" target="_blank" rel="noopener" className="hover:text-ink transition-colors">GitHub</a>
+            <a href="https://github.com/352727664/CodexBridge" target="_blank" rel="noopener" className="hover:text-ink transition-colors">GitHub</a>
             <a href="/docs" className="hover:text-ink transition-colors">API 文档</a>
           </div>
         </div>

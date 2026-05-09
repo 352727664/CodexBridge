@@ -30,7 +30,7 @@ Codex (Responses API) → CodexBridge → AI 提供商 (Chat Completions API)
 
 ```bash
 # 1. 安装并启动
-git clone https://github.com/yourname/CodexBridge.git
+git clone https://github.com/352727664/CodexBridge.git
 cd CodexBridge && pip install -r requirements.txt
 python proxy.py
 
