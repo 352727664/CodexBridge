@@ -143,6 +143,10 @@ class OpenAIProvider:
         if body.get("top_p") is not None:
             result["top_p"] = body["top_p"]
 
+        # --- MiMo: disable thinking mode to avoid reasoning_content requirement ---
+        if "mimo" in model.lower():
+            result["thinking"] = {"type": "disabled"}
+
         # --- stream ---
         if body.get("stream"):
             result["stream"] = True
