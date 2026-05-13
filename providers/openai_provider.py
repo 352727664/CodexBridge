@@ -114,6 +114,14 @@ class OpenAIProvider:
         elif isinstance(input_data, list):
             messages.extend(self._input_items_to_messages(input_data, supports_images))
 
+        # Merge multiple system messages into one (MiMo rejects duplicates)
+        system_msgs = [m for m in messages if m.get("role") == "system"]
+        if len(system_msgs) > 1:
+            merged_content = "\n\n".join(m.get("content", "") for m in system_msgs)
+            system_msgs[0]["content"] = merged_content
+            for m in system_msgs[1:]:
+                messages.remove(m)
+
         result: Dict[str, Any] = {
             "model": model,
             "messages": messages,
@@ -230,6 +238,9 @@ class OpenAIProvider:
         self, item: Dict[str, Any], supports_images: bool
     ) -> Dict[str, Any]:
         role = item.get("role", "user")
+        # MiMo doesn't support 'developer' role — convert to system
+        if role == "developer":
+            role = "system"
         content = self._parts_to_content(item.get("content", ""), supports_images)
         return {"role": role, "content": content}
 
